@@ -7,11 +7,11 @@ import sys
 pygame.init()
 
 # Константы
-SCREEN_WIDTH, SCREEN_HEIGHT = 800, 600  # Размеры экрана
+SCREEN_WIDTH, SCREEN_HEIGHT = 1000, 600  # Размеры экрана
 BACKGROUND_COLOR = (255, 255, 255)  # Цвет фона (белый)
 FONT = pygame.font.SysFont(None, 36)  # Шрифт и размер текста (36)
-QUALITY_SIZE = (100, 100)  # Размер каждого изображения 
-GAP = 20  # Расстояние между изображениями и элементами
+QUALITY_SIZE = (100, 100)  # Размер каждого изображения
+GAP = 40  # Расстояние между изображениями и элементами
 QUALITIES_PER_ROW = 5  # Количество качеств на строку в сетке
 GLASS_WIDTH, GLASS_HEIGHT = 100, 300  # Размеры стакана
 
@@ -19,18 +19,18 @@ GLASS_WIDTH, GLASS_HEIGHT = 100, 300  # Размеры стакана
 WHITE = (255, 255, 255)  # Бе́лый
 BLACK = (0, 0, 0)  # Черный
 GOOD_COLORS = [  # Цвета, связанные с хорошими качествами
-    (173, 216, 230),  # Light Blue
-    (144, 238, 144),  # Light Green
-    (255, 182, 193),  # Light Pink
-    (255, 255, 224),  # Light Yellow
-    (211, 211, 211)   # Light Grey
+    (37, 64, 154),  # kindness
+    (69, 159, 216),  # honesty
+    (255, 222, 89),  # generosity
+    (126, 217, 87),  # patience
+    (255, 145, 77)   # humility
 ]
 BAD_COLORS = [  # Цвета, связанные с плохими качествами
-    (255, 69, 0),     # Red
-    (255, 140, 0),    # Dark Orange
-    (255, 215, 0),    # Gold
-    (218, 165, 32),   # Golden Rod
-    (128, 0, 0)       # Maroon
+    (84, 84, 84),     # greed
+    (82, 41, 16),    # dishonesty
+    (132, 125, 95),    # impatience
+    (51, 68, 43),   # pride
+    (60, 90, 109)       # cruelty
 ]
 
 # Загрузка изображений (заменить на фактические пути к файлам)
@@ -88,7 +88,7 @@ def determine_person_type(good_count, bad_count):
 
 def draw_glass_fill(selected_qualities):
     """
-    # Рисует стакан и заполняет его цветами, соответствующими выбранным качествам
+    Рисует стакан и заполняет его цветами, соответствующими выбранным качествам
     """
     glass_rect = pygame.Rect(SCREEN_WIDTH - GLASS_WIDTH - GAP, SCREEN_HEIGHT // 2 - GLASS_HEIGHT // 2, GLASS_WIDTH, GLASS_HEIGHT)
     pygame.draw.rect(screen, BLACK, glass_rect, 2)  # Рисование границы стакана
@@ -103,7 +103,7 @@ def draw_glass_fill(selected_qualities):
 
         fill_rect = pygame.Rect(glass_rect.left, glass_rect.bottom - (idx + 1) * fill_height, GLASS_WIDTH, fill_height)
         pygame.draw.rect(screen, fill_color, fill_rect)  # Рисование сегмента заполнения
-    
+   
 def main():
     selected_qualities = []  # Список для отслеживания выбранных качеств
     running = True  # Флаг для управления циклом игры
@@ -155,4 +155,3 @@ def main():
 
 if __name__ == "__main__":
     main()  # Запуск основной функции
-
