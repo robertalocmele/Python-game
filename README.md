@@ -6,20 +6,17 @@
 
 Потом открываем Терминал на макбуке.
 
-Установить Homebrew
-КОД: 
+Установить Homebrew 
   
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 После того как там всё скачалось запроси ещё этот код
-КОД: 
     
     echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
     source ~/.zshrc
 
 
-Установить Python с помощью Homebrew
-КОД: 
+Установить Python с помощью Homebrew 
     
     brew install python
 
@@ -28,28 +25,26 @@
 Слева есть меню где по середине есть Extensions.
 Открываем и в поиске ищем Python. И нажимаем Install.
 
-Теперь можно открывать папки через VS code. 
-Должен открыться файл game.py и все фотки.
+Создай новую папку на рабочем столе. Назовы эту папку "Game". Скачай все файлы игры в эту папку
+Теперь у тебя на рабочем столе должна быть папка "Game", содержащая все файлы игры, включая game.py и все фотографии.
+
+Теперь можно открывать папку через VS code. 
 
 Теперь нам нужен Virtual Environment
 
 Создайте новое виртуальное окружение:
-КОД: 
       
       python3 -m venv venv
 
 Активируйте новое виртуальное окружение:
-КОД: 
 
       source venv/bin/activate
 
 Установите Pygame:
-КОД: 
 
       pip install pygame
 
 Запускать игры можно либо через скрипт либо нажимая play в правом верхнем углу.
-КОД: 
 
     python game.py
     
